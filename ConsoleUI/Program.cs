@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,21 +33,47 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
-
+            var Vehicles = new List<Vehicle>();
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * 
              * Set the properties with object initializer syntax
              */
+            var Midsize = new Car() { Model = "Trailblazer", Make = "Chevrolet", Year = "2009" };
+            
+            var motorcycle = new Motorcycle() { Year = "2006", Make = "Honda", Model = "Raptor", };
+            Vehicle sedan = new Car() { Model = "sentra", Make = "Nissan", Year = "2020" };
+           
+            Vehicle sport = new Car() {Year = "2008", Make = "Toyota", Model = "Camry", };
 
-            /*
-             * Add the 4 vehicles to the list
-             * Using a foreach loop iterate over each of the properties
-             */
 
+
+
+
+            //* Add the 4 vehicles to the list
+            // * Using a foreach loop iterate over each of the properties
+            // */
+            Vehicles.Add(Midsize);
+            Vehicles.Add(motorcycle);
+            Vehicles.Add(sedan);
+            Vehicles.Add(sport);
+            //*
+
+            foreach (var vehicle in Vehicles)
+            {
+                Console.WriteLine("Vehicle Information");
+                Console.WriteLine($"Year: {vehicle.Year}");
+                Console.WriteLine($"Make: {vehicle.Make}");
+                Console.WriteLine($"Model: {vehicle.Model}");
+                //Console.WriteLine("Vehicle Information");
+                vehicle.DriveAbstract();
+                vehicle.DriveVirtual();
+                Console.WriteLine();
+
+            }
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
             Console.ReadLine();
         }
     }
